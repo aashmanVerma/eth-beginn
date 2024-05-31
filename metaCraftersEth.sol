@@ -26,21 +26,17 @@ contract MyToken {
     mapping (address => uint) public amt;
 
     // mint function
-    function mint(address a, uint val) external returns (uint) {
+    function mint(address a, uint val) external {
         coinSupply += val;
         amt[a] += val;
-
-        return coinSupply;
     }
 
     // burn function
-    function burn(address a, uint val) external returns (uint) {
+    function burn(address a, uint val) external {
         if (amt[a] >= val) {
             coinSupply -= val;
             amt[a] -= val;
         }
-
-        return coinSupply;
     }
 
 }
